@@ -1,4 +1,4 @@
-import Job from "components/Job";
+import Job from "components/Job.js";
 
 const Jobs=({Jobs})=>{
     if(!Jobs) return null
