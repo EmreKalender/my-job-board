@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Job = ({ job }) => {
   return (
-    <div className='mb-4 mt-20 pl-16 pr-16'>
+    <div className='mb-4 mt-20 pl-16 pr-16 border  border-spacing-20 rounded-lg'>
       <Link href={`/job/${job.id}`}>
         <a className='text-xl font-bold font-serif underline'>{job.title}</a>
       </Link>
