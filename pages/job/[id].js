@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function Job({job}){
     console.log(job)
     return(
-        <div className='flex flex-col w-1/2 mx-auto'>
+    <div className='flex flex-col w-1/2 mx-auto'>
       <div className='text-center p-4 m-4'>
         <Link href={`/`}>
           <a href='' className='mb-10 text-sm font-bold underline'>
@@ -16,7 +16,13 @@ export default function Job({job}){
       <div className='text-center p-4 m-4'>
         <h2 className='mb-10 text-4xl font-bold'>{job.title}</h2>
       </div>
-
+      <div className="mt-20 flex justify-center">
+        <Link href={`/job/${job.id}/apply`}>
+          <button className="border px-8 py-2 mt-0 font-bold rounded-full bg-black text-white">
+            Apply to this job
+          </button>
+        </Link>
+      </div>
       <div className='mb-4 mt-20'>
         <div className='pl-16 pr-16 -mt-6'>
           <p className='text-base font-normal mt-3'>{job.description}</p>

@@ -23,6 +23,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Job           Job[]
+  applications  Application[]
 }
 
 model VerificationToken {
@@ -63,13 +64,23 @@ model Session {
 }
 
 model Job {
-  id          Int @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  title       String?
-  description String?
-  salary      String?
-  location    String?
-  published   Boolean @default(true)
-  author      User    @relation(fields: [authorId], references:[id])
-  authorId    String
+  id            Int @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  title         String?
+  description   String?
+  salary        String?
+  location      String?
+  published     Boolean @default(true)
+  author        User    @relation(fields: [authorId], references:[id])
+  authorId      String
+  applications  Application[]
+}
+
+model Application{
+  id            Int @id @default(autoincrement())
+  coverLetter  String
+  Job           Job     @relation(fields: [jobId], references:[id])
+  jobId         Int
+  author        User    @relation(fields: [authorId], references:[id])
+  authorId      String
 }
